@@ -30,7 +30,29 @@ $ du .git
 476528	.git
 ```
 
-after is coming soon.
+but, after doesn't seem too hopeful
+
+```
+$ du .git
+
+0	.git/branches
+80	.git/hooks
+16	.git/info
+24	.git/logs/refs/heads
+8	.git/logs/refs/remotes/origin
+8	.git/logs/refs/remotes
+32	.git/logs/refs
+40	.git/logs
+8	.git/objects/info
+436832	.git/objects/pack
+436840	.git/objects
+0	.git/refs/heads
+0	.git/refs/remotes/origin
+0	.git/refs/remotes
+0	.git/refs/tags
+0	.git/refs
+472184	.git
+```
 
 This repo contains 2 scripts, one for [running daily/weekly/monthly](runner.rb) and one for converting to the [new format](convert_specs_repo.rb).
 

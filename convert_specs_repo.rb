@@ -26,14 +26,17 @@
   "git tag -d v0.32.1",
   "git tag v0.32.1",
 
+  # Replace the tag "20161019"
+  "git checkout 20161019",
+  "git checkout --orphan new_20161019",
+  "git add .",
+  "git commit -m 'Create a single commit version of 20161019'",
+  "git tag -d 20161019",
+  "git tag 20161019",
+
   # OK, that's master switched to be one commit, and predates_sharding_branch also.
   # All of the commits that make up the old master need to be removed
   "git gc --prune=now --aggressive",
-
-  # That's a reduced version of the repo, ship it back
-  "git push origin predates_sharding_branch -f",
-  "git push origin master -f",
-  "git push --tags -f"
 
 ].each do |line| 
   unless system(line)
@@ -42,3 +45,11 @@
     exit
   end
 end
+
+# That's a reduced version of the repo, ship it back
+
+puts "OK, that's all of them, now it's on you to make the pushes:\n"
+
+puts "git push origin predates_sharding_branch:predates_sharding_branch -f"
+puts "git push origin master:master -f"
+puts "git push --tags -f"
